@@ -29,7 +29,7 @@ template <std::size_t N>
 void test() {
   double A[N][N], x[N], y[N] = {};
 
-  std::mt19937 rng{std::invoke(std::random_device{})};
+  static std::mt19937 rng{std::invoke(std::random_device{})};
   std::uniform_int_distribution dist{0, 100};
 
   std::ranges::for_each(A, [&](auto&& row) {
